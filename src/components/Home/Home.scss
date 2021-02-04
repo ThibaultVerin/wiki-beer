@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebae3e;
+  width: 100vw;
+  height: 100vh;
+}
+.logo-home {
+  background-image: url('../Picture/Fichier 2.png');
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60vw;
+  height: 50vh;
+  margin-right: 30px;
+}
+.title-home {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #292929;
+  font-size: 20px;
+}
