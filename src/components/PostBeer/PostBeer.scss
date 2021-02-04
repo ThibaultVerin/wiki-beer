@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 .post-beer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #ebae3e;
-  width: 100vw;
   height: 100vh;
-}
-.input-post-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 2vh;
+  width: 100vw;
+  .contactForm {
+    width: 70%;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    form {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .input-contact-form {
+      margin-bottom: 10px;
+    }
+    .button-contact-form {
+      margin-top: 12px;
+    }
+  }
 }

@@ -10,18 +10,18 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const useStyles = makeStyles((theme) => ({
-  btn: {
-    backgroundColor: '#6d071a',
-    textTransform: 'none',
-    '&:hover': {
-      backgroundColor: '#6d071a',
+const useStyles = makeStyles(() => ({
+  root: {
+    width: '100%',
+    '& > *': {
+      width: '25ch',
     },
   },
+  formControl: {
+    width: 200,
+  },
   input: {
-    [theme.breakpoints.up('md')]: {
-      width: '400px',
-    },
+    width: '100%',
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: '#6d071a',
     },
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiInputLabel-outlined.Mui-focused': {
       color: '#6d071a',
+    },
+  },
+  btn: {
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
 }));
@@ -75,7 +82,7 @@ const PostBeer = () => {
   };
 
   return (
-    <div>
+    <div className='post-beer-container'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>You dont find your beer in our list ? Post it !</h1>
 

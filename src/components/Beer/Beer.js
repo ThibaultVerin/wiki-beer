@@ -35,10 +35,11 @@ const Beer = () => {
   return (
     <div className='beer-page-container'>
       <h1>Beer List</h1>
-      <div>
+      <div className='filter-container'>
         <input
           type='text'
           value={searchItem}
+          placeholder='Search'
           onChange={(event) => setSearchItem(event.target.value)}
         />
         <input
@@ -56,27 +57,30 @@ const Beer = () => {
         />{' '}
         <label for='brand'>Search by brand</label>
       </div>
-      <>
+      <div className='beer-list-body'>
         {handleFilterdList.map((beer) => {
           return (
             <div className='beer-card'>
-              <img src={beer.image_url} alt={beer.name} />
-              <p>{beer.name}</p>
-              <div className='beer-description'>
-                <p>{beer.description}</p>
-              </div>
-              <div className='beer-card-button'>
+              <div className='beer-card-header'>
                 <div onClick={() => setFavorite([...favorite, beer])}>
-                  <img src={heart} alt='bookmarks' />
+                  <img src={heart} alt='favorite' />
+                </div>
+                <div className='beer-list-image'>
+                  <img src={beer.image_url} alt={beer.name} />
                 </div>
                 <Link to={{ pathname: `/beer/${beer.id}` }}>
                   <button type='button'>Learn more</button>
                 </Link>
               </div>
+              <h2>{beer.name}</h2>
+              <div className='beer-info'>
+                <p>Brand : {beer.brand}</p>
+                <p>Country : {beer.country}</p>
+              </div>
             </div>
           );
         })}
-      </>
+      </div>
     </div>
   );
 };
