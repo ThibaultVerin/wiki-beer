@@ -10,6 +10,7 @@ const Beer = () => {
   const [searchItem, setSearchItem] = useState('');
   const [searchByName, setSearchByName] = useState(false);
   const [searchByBrand, setSearchByBrand] = useState(false);
+  const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/beer').then((response) => {
@@ -65,7 +66,9 @@ const Beer = () => {
                 <p>{beer.description}</p>
               </div>
               <div className='beer-card-button'>
-                <img src={heart} alt='bookmarks' />
+                <div onClick={() => setFavorite([...favorite, beer])}>
+                  <img src={heart} alt='bookmarks' />
+                </div>
                 <Link to={{ pathname: `/beer/${beer.id}` }}>
                   <button type='button'>Learn more</button>
                 </Link>
