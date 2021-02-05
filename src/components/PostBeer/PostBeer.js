@@ -21,22 +21,25 @@ const useStyles = makeStyles(() => ({
     width: 200,
   },
   input: {
-    width: '100%',
+    width: '80%',
+    backgroundColor: '#fff',
+    margin: '10px',
+    marginLeft: '40px',
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#6d071a',
+      borderColor: '#292929',
     },
     '& .MuiOutlinedInput-input': {
-      color: '#6d071a',
+      color: '#292929',
     },
     '& .MuiInputLabel-outlined.Mui-focused': {
-      color: '#6d071a',
+      color: '#292929',
     },
   },
   btn: {
-    backgroundColor: '#6d071a',
-    textTransform: 'none',
+    backgroundColor: '#292929',
+    textTransform: '#292929',
     '&:hover': {
-      backgroundColor: '#6d071a',
+      backgroundColor: '#292929',
     },
   },
 }));
@@ -64,19 +67,16 @@ const PostBeer = () => {
   const onSubmit = async (data) => {
     try {
       await axios.post('http://localhost:5000/beer/', data);
-      addToast('Votre compte a été creé, vous pouvez vous connecter', {
+      addToast('Your beer has been added to the database, thank you !', {
         appearance: 'success',
         autoDismiss: true,
       });
     } catch (err) {
       if (err.response.status === 500) {
-        addToast(
-          'Erreur lors de votre inscription, veuillez rééssayer plus tard',
-          {
-            appearance: 'error',
-            autoDismiss: true,
-          }
-        );
+        addToast('A mistake occured during your upload, please try later', {
+          appearance: 'error',
+          autoDismiss: true,
+        });
       }
     }
   };
@@ -84,7 +84,7 @@ const PostBeer = () => {
   return (
     <div className='post-beer-container'>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>You dont find your beer in our list ? Post it !</h1>
+        <h1>Post your beer !</h1>
 
         <div className='input-post-form'>
           <TextField
@@ -137,13 +137,14 @@ const PostBeer = () => {
                     required: 'select one option',
                   })}
                 >
-                  <MenuItem value="J'ai une question">Pils</MenuItem>
-                  <MenuItem value='Je souhaite devenir partenaire'>
-                    IPA
-                  </MenuItem>
-                  <MenuItem value='Je souhaite devenir animateur'>
-                    Lager
-                  </MenuItem>
+                  <MenuItem value='Pils'>Pils</MenuItem>
+                  <MenuItem value='IPA'>IPA</MenuItem>
+                  <MenuItem value='Lager'>Lager</MenuItem>
+                  <MenuItem value='Porter'>Porter</MenuItem>
+                  <MenuItem value='White'>White</MenuItem>
+                  <MenuItem value='Porter'>Porter</MenuItem>
+                  <MenuItem value='Baltic'>Baltic</MenuItem>
+                  <MenuItem value='Pale Ale'>Pale Ale</MenuItem>
                 </Select>
               }
               control={control}
@@ -179,7 +180,7 @@ const PostBeer = () => {
             label='Image (URL)'
             variant='outlined'
             inputRef={register({
-              required: 'Please insert a name.',
+              required: 'Please insert an image.',
             })}
             name='image_url'
           />
