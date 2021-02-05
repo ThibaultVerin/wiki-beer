@@ -15,7 +15,7 @@ function App() {
       <Router>
         <div className='App'>
           <Helmet>
-            <title>Wiki-Beer</title>
+            <title>Wiki Qui Mousse</title>
           </Helmet>
           <Navbar />
           <div className='main-div'>
